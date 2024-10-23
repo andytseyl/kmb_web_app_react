@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import ChooseLine from "./components/chooseLine";
+import SearchBar from "./components/searchBar";
+import ShowLine from "./components/showLine";
+import useFetchRoutesData from "./components/useFetchRoutesData";
+import { useState } from "react";
 
 function App() {
+  const [searchedLine, setSearchedLine] = useState({});
+  const [content, setContent] = useState("");
+  const allInfo = useFetchRoutesData();
+  if (Object.keys(allInfo).length === 0) return null;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="m-2 md:max-w-screen-md lg:max-w-screen-md xl:max-w-screen-md 2xl:max-w-screen-md">
+      <img
+        className="mb-4 rounded-md"
+        src="https://www.681busterminal.com/kmb.gif"
+      ></img>
+      <SearchBar setContent={setContent} content={content} />
+      <p className="mt-4 mb-4">請選擇路線:</p>
+      <ChooseLine
+        allInfo={allInfo}
+        content={content}
+        setSearchedLine={setSearchedLine}
+      />
+      <ShowLine searchedLine={searchedLine} />
+    </section>
   );
 }
 
