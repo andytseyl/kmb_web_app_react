@@ -3,6 +3,7 @@ import SearchBar from "./components/searchBar";
 import ShowLine from "./components/showLine";
 import useFetchRoutesData from "./components/useFetchRoutesData";
 import { useState } from "react";
+import moment from "moment";
 
 function App() {
   const [searchedLine, setSearchedLine] = useState({});
@@ -16,7 +17,13 @@ function App() {
         className="mb-4 rounded-md"
         src="https://www.681busterminal.com/kmb.gif"
       ></img>
-      <SearchBar setContent={setContent} content={content} />
+      <div className="flex justify-between items-center">
+        <SearchBar setContent={setContent} content={content} />
+        <div className="text-right">
+          最後更新時間: <br />
+          {moment().format("Do MMMM YYYY, h:mm:ss a")}
+        </div>
+      </div>
       <p className="mt-4 mb-4">請選擇路線:</p>
       <ChooseLine
         allInfo={allInfo}

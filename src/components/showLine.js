@@ -84,7 +84,7 @@ const ShowLine = ({ searchedLine }) => {
           <div key={index} className="">
             {index + 1}. {stops.name}
           </div>
-          <div>預計到站時間: {moment(stops.eta).format("HH:mm")}</div>
+          <div>預計到站時間: {moment(stops.eta).format("hh:mm a")}</div>
         </button>
       ))}
     </div>
