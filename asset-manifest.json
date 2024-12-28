@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kmb-app/static/css/main.117dac49.css",
-    "main.js": "/kmb-app/static/js/main.f230e824.js",
-    "index.html": "/kmb-app/index.html",
-    "main.117dac49.css.map": "/kmb-app/static/css/main.117dac49.css.map",
-    "main.f230e824.js.map": "/kmb-app/static/js/main.f230e824.js.map"
+    "main.css": "/kmb_web_app_react/static/css/main.555d0afc.css",
+    "main.js": "/kmb_web_app_react/static/js/main.ee68ac8f.js",
+    "index.html": "/kmb_web_app_react/index.html",
+    "main.555d0afc.css.map": "/kmb_web_app_react/static/css/main.555d0afc.css.map",
+    "main.ee68ac8f.js.map": "/kmb_web_app_react/static/js/main.ee68ac8f.js.map"
   },
   "entrypoints": [
-    "static/css/main.117dac49.css",
-    "static/js/main.f230e824.js"
+    "static/css/main.555d0afc.css",
+    "static/js/main.ee68ac8f.js"
   ]
 }
