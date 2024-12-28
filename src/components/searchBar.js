@@ -23,7 +23,7 @@ function SearchBar({ content, setContent }) {
         }}
       />
       <button
-        className="border-2 rounded-md p-1 hover:bg-gray-300 active:bg-gray-500 focus:outline-none focus:ring focus:ring-gray-300"
+        className="mt-1 border-2 rounded-md p-1 hover:bg-gray-300 active:bg-gray-500 focus:outline-none focus:ring focus:ring-gray-300"
         type="submit"
       >
         搜尋路線

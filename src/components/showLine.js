@@ -44,7 +44,6 @@ const useFetchChoseRoutes = ({ searchedLine }) => {
           `${url2}/${stop_id}/${searchedLine.route}/${searchedLine.service_type}`
         );
         const etaData = await res2.json();
-        console.log("ETA Data:", etaData);
         etaResults.push(etaData);
       }
       setEtaList(etaResults);
@@ -70,21 +69,53 @@ const ShowLine = ({ searchedLine }) => {
       (stops) => stops.stop === route.stop
     );
     const etaData = etaList[idx];
-    const eta =
+    console.log(etaData);
+    const etaListFormatted =
       etaData && etaData.data && etaData.data.length > 0
-        ? etaData.data[0].eta
-        : "未知時間";
-    return { name: stopName[0]?.name_tc || "未知站名", eta: eta };
+        ? etaData.data
+            .slice(0, 2) // 取前三個
+            .map((etaItem) => {
+              const now = moment(); // 當前時間
+              const etaTime = etaItem.eta ? moment(etaItem.eta) : null;
+              const minutesLeft = etaTime
+                ? Math.max(0, Math.ceil(etaTime.diff(now, "minutes")))
+                : null;
+
+              return {
+                timeLeft:
+                  minutesLeft !== null ? `${minutesLeft} 分鐘` : "未有班次",
+                remark: etaItem.rmk_tc || "",
+              };
+            })
+        : [{ timeLeft: "未有班次", remark: "" }];
+    return { name: stopName[0]?.name_tc || "未知站名", eta: etaListFormatted };
   });
 
   return (
     <div>
       {pairedStops.map((stops, index = Math.random()) => (
-        <button className="pb-2 pt-2 flex justify-between min-w-full odd:bg-gray-100 even:bg-gray-200 hover:bg-red-300 active:bg-red-500 focus:outline-none focus:bg-red-300">
-          <div key={index} className="">
+        <button
+          key={index}
+          className="pb-2 pt-2 pl-2 pr-2 flex justify-between min-w-full odd:bg-gray-100 even:bg-gray-200 hover:bg-red-300 active:bg-red-500 focus:outline-none focus:bg-red-300"
+        >
+          <div>
             {index + 1}. {stops.name}
           </div>
-          <div>預計到站時間: {moment(stops.eta).format("hh:mm a")}</div>
+
+          <div className="flex flex-col">
+            {stops.eta.map((etaItem, i) => (
+              <div key={i} className="flex justify-end items-center">
+                {etaItem.remark && (
+                  <div className="text-xs text-gray-500">
+                    {etaItem.remark === "最後班次" ? "尾班車" : ""}
+                  </div>
+                )}
+                <div className="w-16 text-right">{etaItem.timeLeft}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* {console.log(stops)} */}
         </button>
       ))}
     </div>
