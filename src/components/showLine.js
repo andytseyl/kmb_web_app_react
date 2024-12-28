@@ -73,7 +73,7 @@ const ShowLine = ({ searchedLine }) => {
     const etaListFormatted =
       etaData && etaData.data && etaData.data.length > 0
         ? etaData.data
-            .slice(0, 2) // 取前三個
+            .slice(0, 2) // 取前2個
             .map((etaItem) => {
               const now = moment(); // 當前時間
               const etaTime = etaItem.eta ? moment(etaItem.eta) : null;
