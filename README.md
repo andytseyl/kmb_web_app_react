@@ -22,5 +22,5 @@ HTML: The core markup for structuring the web app.
 API Integration: Fetching real-time bus data from the KMB API.
 
 ![image](https://github.com/user-attachments/assets/b606b576-43f5-4c4c-8c80-22481b38a512)
-![image](https://github.com/user-attachments/assets/ad75730f-047a-4d92-84a5-4372374aa117)
+![image](https://github.com/user-attachments/assets/3ae655fb-9593-46ec-8d48-7da13d916095)
 ![image](https://github.com/user-attachments/assets/26c45f39-0030-4b82-bbdf-3d7c3f093e05)
