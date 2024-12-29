@@ -16,10 +16,10 @@ Try Now: https://andytseyl.github.io/kmb_web_app_react/
 
 ### Tools & Technologies Used
 
-ReactJS: For building the user interface and managing the state of the application.
-Tailwind CSS: For fast and responsive styling.
-HTML: The core markup for structuring the web app.
-API Integration: Fetching real-time bus data from the KMB API.
+- ReactJS: For building the user interface and managing the state of the application.
+- Tailwind CSS: For fast and responsive styling.
+- HTML: The core markup for structuring the web app.
+- API Integration: Fetching real-time bus data from the KMB API.
 
 ![image](https://github.com/user-attachments/assets/b606b576-43f5-4c4c-8c80-22481b38a512)
 ![image](https://github.com/user-attachments/assets/3ae655fb-9593-46ec-8d48-7da13d916095)
